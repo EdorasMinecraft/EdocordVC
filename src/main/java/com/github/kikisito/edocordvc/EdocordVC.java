@@ -19,7 +19,7 @@ import java.util.function.Consumer;
 public class EdocordVC {
 
     public static void main(String[] args){
-        final GatewayDiscordClient client = DiscordClientBuilder.create("NzEwMjc4OTYzNTg2NjYyNDAw.XryI1Q.ndIDd4S6eSK9U_A31IQCMP_pr60")
+        final GatewayDiscordClient client = DiscordClientBuilder.create("")
                 .build()
                 .login()
                 .block();
