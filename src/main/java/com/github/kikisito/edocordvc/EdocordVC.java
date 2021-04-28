@@ -13,10 +13,13 @@ import discord4j.discordjson.json.ActivityUpdateRequest;
 import discord4j.rest.util.Permission;
 import discord4j.rest.util.PermissionSet;
 
+import java.time.Instant;
+import java.util.function.Consumer;
+
 public class EdocordVC {
 
     public static void main(String[] args){
-        final GatewayDiscordClient client = DiscordClientBuilder.create(System.getenv("discordcm_token"))
+        final GatewayDiscordClient client = DiscordClientBuilder.create("NzEwMjc4OTYzNTg2NjYyNDAw.XryI1Q.ndIDd4S6eSK9U_A31IQCMP_pr60")
                 .build()
                 .login()
                 .block();
@@ -62,7 +65,7 @@ public class EdocordVC {
                             // Exclude staff chat
                             if(tc.getId().equals(Snowflake.of("701226195466846258")) || tc.getId().equals(Snowflake.of("442679632928571394"))) return;
                             // Delete messages
-                            tc.getMessagesBefore(tc.getLastMessageId().get()).subscribe(message -> message.delete().subscribe());
+                            tc.getMessagesBefore(Snowflake.of(Instant.now())).subscribe(message -> message.delete().subscribe());
                         }
                     }));
                 }
